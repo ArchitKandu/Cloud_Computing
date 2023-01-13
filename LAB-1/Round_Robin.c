@@ -1,12 +1,9 @@
 #include <stdio.h>
-int turnarroundtime(int processes[], int n,
-int bt[], int wt[], int tat[]) {
+void turnarroundtime(int processes[], int n, int bt[], int wt[], int tat[]) {
    for (int i = 0; i < n ; i++)
         tat[i] = bt[i] + wt[i];
-   return 1;
 }
-int waitingtime(int processes[], int n,
-int bt[], int wt[], int quantum) {
+void waitingtime(int processes[], int n, int bt[], int wt[], int quantum) {
    int rem_bt[n];
    for (int i = 0 ; i < n ; i++)
    rem_bt[i] = bt[i];
@@ -30,10 +27,8 @@ int bt[], int wt[], int quantum) {
       if (done == 0)
          break;
    }
-   return 1;
 }
-int findavgTime(int processes[], int n, int bt[],
-int quantum) {
+void findavgTime(int processes[], int n, int bt[], int quantum) {
    int wt[n], tat[n], total_wt = 0, total_tat = 0;
    waitingtime(processes, n, bt, wt, quantum);
    turnarroundtime(processes, n, bt, wt, tat);
@@ -45,7 +40,6 @@ int quantum) {
    }
    printf("\nAverage waiting time = %.2f\n", (float)total_wt / (float)n);
    printf("Average turnaround time = %.2f\n\n", (float)total_tat / (float)n);
-   return 1;
 }
 int main() {
    int processes[] = { 1, 2, 3};

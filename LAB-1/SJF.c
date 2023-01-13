@@ -33,14 +33,14 @@ int main(){
 	}
 	avg_wt = (float)total / n;
 	total = 0;
-	printf("\nP	 BT	 WT	 TAT\n");
+	printf("\nProcess	 Burst Time	 Waiting Time	 Turnaround Time\n");
 	for (i = 0; i < n; i++) {
 		A[i][3] = A[i][1] + A[i][2];
 		total += A[i][3];
-		printf("P%d	 %d	 %d	 %d\n", A[i][0],
+		printf("P%d	 %d	 \t %d	\t %d\n", A[i][0],
 			A[i][1], A[i][2], A[i][3]);
 	}
 	avg_tat = (float)total / n;
 	printf("\nAverage Waiting Time= %.2f", avg_wt);
-	printf("\nAverage Turnaround Time= %.2f", avg_tat);
+	printf("\nAverage Turnaround Time= %.2f\n\n", avg_tat);
 }
